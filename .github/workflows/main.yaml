@@ -6,9 +6,6 @@ env:
 on:
   push:
     branches: [main]
-    paths:
-      - "**.cs"
-      - "**.csproj"
 
 jobs:
   build-and-test:
