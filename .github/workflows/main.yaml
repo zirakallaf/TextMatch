@@ -30,4 +30,10 @@ jobs:
       - name: Test
         run: dotnet test --logger trx --results-directory "TestResults-7.0.x"
 
+      - name: Upload TextMatch test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: dotnet-results-7.0.x
+          path: TestResults-7.0.x
+
       ## configure any cloud platform like AWS, Azure or GCP for  building, pushing an image of the service
