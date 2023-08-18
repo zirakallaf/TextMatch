@@ -1,0 +1,35 @@
+# version: "3.8"
+
+# networks:
+#   textmatch-dev:
+#     driver: bridge
+
+# services:
+#   textmatchapi:
+#     image: textmatchapi:latest
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     ports:
+#       - "80:80"
+#     networks:
+#       - textmatch-dev
+
+#   textmatchtest:
+#     container_name: textmatchtest
+#     image: mcr.microsoft.com/dotnet/sdk:7.0-focal
+#     volumes:
+#       - .:/src
+#       - ../TextMatchTest:/TextMatchTest
+#     working_dir: /src
+#     environment:
+#       - API_URL=http://textmatchapi:80
+#     command: ["dotnet", "test", "../TextMatchTest/TextMatchTest.csproj"]
+#     networks:
+#       - textmatch-dev
+#     depends_on:
+#       - textmatchapi
+
+# volumes:
+#   postgres-data:
+#   pgadmin:

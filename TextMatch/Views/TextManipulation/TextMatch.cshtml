@@ -1,0 +1,50 @@
+@model TextMatch.Models.TextForFrequency;
+
+<div class="container-fluid">
+  <h2>Find SubText Frequency In A Text</h2>
+  <p>This is a simple online subtext frequency calculator for web developers.</p>
+  <ol class="text-match-ol">
+    <li class="text-match-li">enter a subtext, up to  to find its frequency</li>
+    <li class="text-match-li">enter a text for searching</li>
+    <li class="text-match-li">click on the "Find Frequency" button, and wait until the process completes</li>
+    <li class="text-match-li">check the result</li>
+  </ol>
+  
+  <br />
+
+<form method="post" class="form-horizontal" style="background-color: rgb(244, 242, 242); padding: 10px;">
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label>SubText</label>
+        </div>
+        <div class="col-sm-12">
+            <input asp-for="SubText" class="form-control"/>
+            <span asp-validation-for="SubText" class="text-danger"></span>
+        </div>
+        <br/>
+        <div class="col-sm-12">
+            <label>Text</label>
+        </div>
+        <div class="col-sm-12">
+            <textarea asp-for="Text" class="form-control"></textarea>
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+        <br/>
+        <input
+          type="submit"
+          class="btn btn-primary"
+          value="Find Frequency"
+          formnovalidate
+          onclick="this.form.submit(); this.disabled = true; this.value = 'Processing..';"
+        />
+    </div>
+</form>
+<br/>
+<div class="form-horizontal" style="background-color: rgb(244, 242, 242); padding: 10px;">
+    <div class="col-sm-12">
+            <label>Result</label>
+        </div>
+        <div class="col-sm-12">
+            <textarea class="form-control" readonly>@ViewData["TextMatchResult"]</textarea>
+        </div>
+</div>

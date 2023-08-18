@@ -1,0 +1,57 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.text-match-container-box {
+  background-color: darkgray;
+  padding: 10px;
+  display: grid;
+  align-self: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.text-match-text {
+  padding: 8px;
+}
+
+.text-match-ol {
+  counter-reset: item;
+  margin-left: 0;
+  padding-left: 0;
+}
+.text-match-li {
+  display: block;
+  margin-bottom: 0.5em;
+  margin-left: 3em;
+}
+.text-match-li::before {
+  display: inline-block;
+  content: counter(item) ". ";
+  counter-increment: item;
+  width: 1em;
+  margin-left: -2em;
+}
