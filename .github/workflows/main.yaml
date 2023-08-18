@@ -12,10 +12,6 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        dotnet-version: ["7.0.x"]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,7 +19,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: "7.0.x"
 
       - name: Install dependencies
         run: dotnet restore
@@ -32,15 +28,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
-
-      - name: Upload dotnet test results
-        uses: actions/upload-artifact@v3
-        with:
-          name: dotnet-results-${{ matrix.dotnet-version }}
-          path: TestResults-${{ matrix.dotnet-version }}
-          # Use always() to always run this step to publish test results when there are test failures
-          if: ${{ always() }}
+        run: dotnet test --no-restore --verbosity normal
 
       ## configure GCP
       #- name: install the gcloud cli
