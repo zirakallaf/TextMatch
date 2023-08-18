@@ -28,22 +28,6 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test --logger trx --results-directory "TestResults-7.0.x"
 
-      ## configure GCP
-      #- name: install the gcloud cli
-      #  uses: google-github-actions/setup-gcloud@v0
-      #  with:
-      #    project_id: ${{ secrets.GOOGLE_PROJECT }}
-      #    service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-      #    export_default_credentials: true
-
-      #- name: build, tag, and push the image to GCP
-      #  working-directory: ./TextMatch
-      #  id: build-api-image
-      #  env:
-      #    GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
-      #  run: |
-      #    gcloud auth configure-docker us-central1-docker.pkg.dev
-      #    docker build -t image/path .
-      #    docker push image/path
+      ## configure any cloud platform like AWS, Azure or GCP for  building, pushing an image of the service
