@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TextMatch.Models;
 using TextMatch.Services;
@@ -13,7 +13,7 @@ public class TextManipulationController : Controller
     /// <summary>
     /// Logger Instance
     /// </summary>
-    private readonly ILogger<TextManipulationController> _logger;
+    private readonly ILogger<TextManipulationController> logger;
 
     /// <summary>
     /// Reference to the text manipulation service.
@@ -26,7 +26,7 @@ public class TextManipulationController : Controller
     /// <param name="logger">The log object injected into the class</param>
     public TextManipulationController(ILogger<TextManipulationController> logger)
     {
-        _logger = logger;
+        this.logger = logger;
         textManipulations = new();
     }
 
@@ -37,6 +37,7 @@ public class TextManipulationController : Controller
     /// <example> GET textmanipulation </example>
     public IActionResult Index()
     {
+        logger.LogInformation("The GET call of the TextManipulation method in TextManipulation Controller.");
         return View();
     }
 
@@ -47,6 +48,7 @@ public class TextManipulationController : Controller
     /// <example> GET textmanipulation/TextMatch </example>
     public IActionResult TextMatch()
     {
+        logger.LogInformation("The GET call of the TextMatch method in TextManipulation Controller.");
         return View();
     }
 
@@ -59,7 +61,7 @@ public class TextManipulationController : Controller
     [HttpPost]
     public IActionResult TextMatch(TextForFrequency TextForFrequency)
     {
-        _logger.LogInformation("The POST call of the TextMatch method in TextManipulation Controller.");
+        logger.LogInformation("The POST call of the TextMatch method in TextManipulation Controller.");
         if (!ModelState.IsValid)
         {
             return View();
@@ -72,6 +74,7 @@ public class TextManipulationController : Controller
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
+        logger.LogInformation("The GET call of the Error method in TextManipulation Controller.");
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
