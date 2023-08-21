@@ -1,14 +1,13 @@
 # TextMatch
-TextMatch is an ASP.NET MVC project for demonstration purposes .net Core 7.0.x, and it is written in C#. This project is a string manipulation project to deliver searching text in a paragraph or any piece of string. Currently, only a text match algorithm is implemented to find the frequency of a given substring in a text/paragraph. In addition, a test-driven CI/CD pipeline has been implemented in github using GitHub actions. Further, an NUnit test project was added to the solution to protect the text match algorithm from breaking down if we need to extend it in the future.
+TextMatch is an ASP.NET MVC project, which is written in C# .net Core 7 for demonstration purposes. The TextMatch project delivers search algorithms to find the frequency/pattern of a text in a given paragraph. Currently, only a text match algorithm is implemented which is finding the frequency of text, which might be a character, word, or sentence, and their position in a given text/paragraph. In addition, a test-driven CI/CD pipeline has been implemented in github using GitHub actions. Furthermore, an NUnit test project is added to the solution.
 
-## To run the project, you can use Visual Studio (VS) 2022 or VSCode
-  1. clone the repository
-  2. run the project by pressing `F5` or by typing the following command:
+## To run the project, you can use Visual Studio (VS) 2022 or VSCode, and follow the steps:
+  1. clone the repository from github using this link:
      ```sh
-       dotnet run
+       https://github.com/zirakallaf/TextMatch.git
      ```
-     Note, if you intend to use VSCode, make sure that you are in the root directory of the project.
-  4. to run the test, you can run the following command, which is the very basic command:
+  2. run the project
+  3. to run the test, you can run the following command, which is the very basic command:
      ```sh
       dotnet test
      ```
