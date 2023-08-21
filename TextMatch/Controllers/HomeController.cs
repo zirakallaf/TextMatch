@@ -45,6 +45,17 @@ public class HomeController : Controller
         return View();
     }
 
+    /// <summary>
+    /// Gets ContactUs view.
+    /// </summary>
+    /// <returns>About view object.</returns>
+    /// <example> GET About </example>
+    public IActionResult ContactUs()
+    {
+        logger.LogInformation("The GET call of the ContactUs method in Home Controller.");
+        return View();
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
